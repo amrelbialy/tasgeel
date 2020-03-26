@@ -1,26 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {ProjectsProvider} from "./context"
+import { Contents } from "./components/layout/Contents" 
+import { AddClient } from './components/AddClient';
+import {BrowserRouter as Router,Switch , Route} from 'react-router-dom'
+import { ClientTest } from './components/ClientTest';
+import { EditClient } from './components/EditClient';
 
-function App() {
+export const  App = ()=> {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ProjectsProvider>
+        <div>
+        <Router>
+        <Contents/>
+        <Switch>
+        <Route
+        path="/"
+        exact
+        render={props => (
+          <ClientTest/>
+        )}
+      />
+      <Route
+        path="/editClient/:clientId"
+        exact
+        render={props => (
+          <EditClient/>
+        )}
+      />
+      <Route
+        path="/addClient"
+        exact
+        render={props => (
+          <AddClient/>
+        )}
+      />
+  
+       
+      </Switch>
+      </Router>
+        </div>
+    </ProjectsProvider>
+    
   );
 }
 
-export default App;
+

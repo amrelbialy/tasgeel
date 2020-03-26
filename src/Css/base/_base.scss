@@ -1,0 +1,19 @@
+html {
+    font-size: 100% ;  // 1 rem equal 10px
+    
+}
+
+body{
+    padding: 3rem;
+   
+}
+.body {
+    position: relative;
+    height: 100rem;
+    margin-top: 7rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 9px 0px 10px -8px rgba(0,0,0,0.77);
+}
